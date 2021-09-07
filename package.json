@@ -1,19 +1,26 @@
 {
-  "name": "storybook-addon-kit",
-  "version": "0.0.0",
-  "description": "everything you need to build a Storybook addon",
+  "name": "@storybook/addon-fake-request",
+  "version": "1.0.0",
+  "description": "A storybook addon to mock http requests",
+  "main": "dist/cjs/index.js",
   "keywords": [
-    "storybook-addons",
-    "style",
-    "test"
+    "storybook",
+    "mock",
+    "http-mock",
+    "fetch-mock",
+    "mock-data",
+    "storybook-addon",
+    "data-state",
+    "storybook-mock-request",
+    "mock-request",
+    "fake-request"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/storybookjs/storybook-addon-kit"
+    "url": "https://github.com/DelphiDesigner/storybook-addon-fake-request"
   },
-  "author": "winkerVSbecks",
+  "author": "Morteza Ebrahimi",
   "license": "MIT",
-  "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/ts/index.d.ts",
   "files": [
@@ -31,7 +38,6 @@
     "prebuild": "yarn clean",
     "build": "concurrently \"yarn buildBabel\" \"yarn buildTsc\"",
     "build:watch": "concurrently \"yarn buildBabel:esm -- --watch\" \"yarn buildTsc -- --watch\"",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006",
     "start": "concurrently \"yarn build:watch\" \"yarn storybook -- --no-manager-cache --quiet\"",
     "build-storybook": "build-storybook",
@@ -47,6 +53,9 @@
     "@babel/preset-typescript": "^7.13.0",
     "@storybook/addon-essentials": "^6.3.6",
     "@storybook/react": "^6.3.6",
+    "@types/react": "^17.0.19",
+    "@types/react-json-editor-ajrm": "^2.5.2",
+    "@types/request": "^2.48.7",
     "auto": "^10.3.0",
     "babel-loader": "^8.1.0",
     "boxen": "^5.0.1",
@@ -57,7 +66,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "rimraf": "^3.0.2",
-    "typescript": "^4.2.4",
+    "typescript": "^4.4.2",
     "zx": "^1.14.1"
   },
   "peerDependencies": {
@@ -81,12 +90,19 @@
     "access": "public"
   },
   "storybook": {
-    "displayName": "Addon Kit",
+    "displayName": "Fake Request",
     "supportedFrameworks": [
+      "angular",
       "react",
-      "vue",
-      "angular"
-    ],
-    "icon": "https://user-images.githubusercontent.com/321738/63501763-88dbf600-c4cc-11e9-96cd-94adadc2fd72.png"
+      "stencil",
+      "vue"
+    ]
+  },
+  "dependencies": {
+    "@storybook/addon-links": "^6.3.8",
+    "axios": "^0.21.4",
+    "mock-xmlhttprequest": "^7.0.4",
+    "path-to-regexp": "^6.2.0",
+    "react-json-editor-ajrm": "^2.5.13"
   }
 }
