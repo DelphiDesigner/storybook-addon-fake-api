@@ -1,11 +1,14 @@
 {
-  "name": "storybook-addon-kit",
-  "version": "0.0.0",
-  "description": "everything you need to build a Storybook addon",
+  "name": "storybook-addon-fake-request",
+  "version": "1.0.0",
+  "description": "This addon will send fake responses to the requests sent from your component",
   "keywords": [
     "storybook-addons",
-    "style",
-    "test"
+    "fake-request",
+    "fake-api",
+    "fake-response",
+    "mock-response",
+    "mock-api"
   ],
   "repository": {
     "type": "git",
@@ -37,7 +40,10 @@
     "build-storybook": "build-storybook",
     "prerelease": "zx scripts/prepublish-checks.mjs",
     "release": "yarn build && auto shipit",
-    "eject-ts": "zx scripts/eject-typescript.mjs"
+    "eject-ts": "zx scripts/eject-typescript.mjs",
+    "eslint": "eslint \"src/**/*.ts\" \"src/**.tsx\"",
+    "eslint:fix": "eslint --fix \"src/**/*.ts\" \"src/**.tsx\"",
+    "prettier:fix": "prettier 'src/**/*.ts' --write"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.1",
@@ -47,12 +53,22 @@
     "@babel/preset-typescript": "^7.13.0",
     "@storybook/addon-essentials": "^6.3.6",
     "@storybook/react": "^6.3.6",
+    "@typescript-eslint/eslint-plugin": "^4.31.0",
+    "@typescript-eslint/parser": "^4.31.0",
     "auto": "^10.3.0",
     "babel-loader": "^8.1.0",
     "boxen": "^5.0.1",
     "concurrently": "^6.2.0",
     "dedent": "^0.7.0",
-    "prettier": "^2.3.1",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.25.1",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier": "^2.3.2",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

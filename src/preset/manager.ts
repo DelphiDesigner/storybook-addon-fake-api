@@ -27,9 +27,9 @@ addons.register(ADDON_ID, () => {
   addons.add(PANEL_ID, {
     type: types.TAB,
     title: "My addon",
-    //👇 Checks the current route for the story
+    // 👇 Checks the current route for the story
     route: ({ storyId }) => `/myaddon/${storyId}`,
-    //👇 Shows the Tab UI element in myaddon view mode
+    // 👇 Shows the Tab UI element in myaddon view mode
     match: ({ viewMode }) => viewMode === "myaddon",
     render: Tab,
   });

@@ -11,7 +11,7 @@ export const Tool = () => {
       updateGlobals({
         myAddon: myAddon ? undefined : true,
       }),
-    [myAddon]
+    [myAddon],
   );
 
   return (
@@ -19,8 +19,7 @@ export const Tool = () => {
       key={TOOL_ID}
       active={myAddon}
       title="Enable my addon"
-      onClick={toggleMyTool}
-    >
+      onClick={toggleMyTool}>
       {/*
         Checkout https://next--storybookjs.netlify.app/official-storybook/?path=/story/basics-icon--labels
         for the full list of icons
