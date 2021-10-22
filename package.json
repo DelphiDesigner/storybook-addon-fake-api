@@ -10,7 +10,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/DelphiDesigner/storybook-addon-fake-request"
+    "url": "https://github.com/DelphiDesigner/storybook-addon-fake-api"
   },
   "author": "Morteza Ebrahimi",
   "license": "MIT",
