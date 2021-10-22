@@ -1,49 +1,47 @@
 {
-    "env": {
-        "browser": true,
-        "es2021": true
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "airbnb",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
     },
-    "extends": [
-        "plugin:react/recommended",
-        "airbnb",
-        "plugin:prettier/recommended"
-    ],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": 12,
-        "sourceType": "module"
-    },
-    "settings": {
-        "import/resolver": {
-          "node": {
-            "extensions": [".js", ".jsx", ".ts", ".tsx"]
-          }
-        }
-      },
-    "plugins": [
-        "react",
-        "@typescript-eslint"
-    ],
-    "rules": {
-        "no-use-before-define": "off",
-        "import/extensions": "off",
-        "react/jsx-props-no-spreading": "off",
-        "import/prefer-default-export":"off",
-        "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".ts"] }],
-        "prettier/prettier": [
-            "error",
-            {
-                "arrowParens": "always",
-                "bracketSpacing": true,
-                "jsxBracketSameLine": true,
-                "jsxSingleQuote": false,
-                "semi": true,
-                "tabWidth": 2,
-                "trailingComma": "all"
-            }
-        ]
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
     }
+  },
+  "plugins": ["react", "@typescript-eslint"],
+  "rules": {
+    "no-use-before-define": "off",
+    "class-methods-use-this": "off",
+    "import/extensions": "off",
+    "no-consol": "off",
+    "react/jsx-props-no-spreading": "off",
+    "import/prefer-default-export": "off",
+    "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".ts"] }],
+    "prettier/prettier": [
+      "error",
+      {
+        "arrowParens": "always",
+        "bracketSpacing": true,
+        "jsxBracketSameLine": true,
+        "jsxSingleQuote": false,
+        "semi": true,
+        "tabWidth": 2
+      }
+    ]
+  }
 }

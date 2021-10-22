@@ -1,20 +1,18 @@
 {
-  "name": "storybook-addon-fake-request",
+  "name": "storybook-addon-fake-api",
   "version": "1.0.0",
   "description": "This addon will send fake responses to the requests sent from your component",
   "keywords": [
     "storybook-addons",
-    "fake-request",
     "fake-api",
     "fake-response",
-    "mock-response",
-    "mock-api"
+    "fake-request"
   ],
   "repository": {
     "type": "git",
     "url": "https://github.com/storybookjs/storybook-addon-kit"
   },
-  "author": "winkerVSbecks",
+  "author": "Morteza Ebrahimi",
   "license": "MIT",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -34,16 +32,21 @@
     "prebuild": "yarn clean",
     "build": "concurrently \"yarn buildBabel\" \"yarn buildTsc\"",
     "build:watch": "concurrently \"yarn buildBabel:esm -- --watch\" \"yarn buildTsc -- --watch\"",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006",
     "start": "concurrently \"yarn build:watch\" \"yarn storybook -- --no-manager-cache --quiet\"",
     "build-storybook": "build-storybook",
     "prerelease": "zx scripts/prepublish-checks.mjs",
     "release": "yarn build && auto shipit",
     "eject-ts": "zx scripts/eject-typescript.mjs",
-    "eslint": "eslint \"src/**/*.ts\" \"src/**.tsx\"",
-    "eslint:fix": "eslint --fix \"src/**/*.ts\" \"src/**.tsx\"",
-    "prettier:fix": "prettier 'src/**/*.ts' --write"
+    "lint": "run-s prettier eslint stylelint --continue-on-error --print-name",
+    "lint:fix": "run-s prettier:fix eslint:fix stylelint:fix --continue-on-error --print-name",
+    "lint-staged:fix": "lint-staged",
+    "prettier": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md,mdx,scss,css}\"",
+    "prettier:fix": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,mdx,scss,css}\"",
+    "eslint": "eslint \"src/**/*{.ts,.tsx,.js,.jsx}\"",
+    "eslint:fix": "eslint \"src/**/*{.ts,.tsx,.js,.jsx}\" --fix",
+    "stylelint": "stylelint \"src/**/*.{scss,css}\"",
+    "stylelint:fix": "stylelint \"src/**/*.{scss,css}\" --fix"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.1",
@@ -52,7 +55,9 @@
     "@babel/preset-react": "^7.12.5",
     "@babel/preset-typescript": "^7.13.0",
     "@storybook/addon-essentials": "^6.3.6",
-    "@storybook/react": "^6.3.6",
+    "@types/node": "^16.10.3",
+    "@types/react": "^17.0.21",
+    "@types/react-dom": "^17.0.9",
     "@typescript-eslint/eslint-plugin": "^4.31.0",
     "@typescript-eslint/parser": "^4.31.0",
     "auto": "^10.3.0",
@@ -69,7 +74,6 @@
     "eslint-plugin-react": "^7.25.1",
     "eslint-plugin-react-hooks": "^4.2.0",
     "prettier": "^2.3.2",
-    "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "rimraf": "^3.0.2",
@@ -82,8 +86,8 @@
     "@storybook/components": "^6.3.6",
     "@storybook/core-events": "^6.3.6",
     "@storybook/theming": "^6.3.6",
-    "react": "^16.8.0 || ^17.0.0",
-    "react-dom": "^16.8.0 || ^17.0.0"
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0"
   },
   "peerDependenciesMeta": {
     "react": {
@@ -104,5 +108,10 @@
       "angular"
     ],
     "icon": "https://user-images.githubusercontent.com/321738/63501763-88dbf600-c4cc-11e9-96cd-94adadc2fd72.png"
+  },
+  "dependencies": {
+    "@storybook/react": "^6.3.6",
+    "mock-xmlhttprequest": "^7.0.4",
+    "path-to-regexp": "^6.2.0"
   }
 }
