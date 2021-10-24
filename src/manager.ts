@@ -1,6 +1,6 @@
 import { addons, types } from "@storybook/addons";
-import { ADDON_ID, PANEL_ID } from "../models/constants";
-import { APIPanel } from "../APIPanel";
+import { ADDON_ID, PANEL_ID } from "./models/constants";
+import { APIPanel } from "./APIPanel";
 
 addons.register(ADDON_ID, () => {
   addons.add(PANEL_ID, {
