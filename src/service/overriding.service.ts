@@ -30,7 +30,7 @@ export class OverridingService {
 
     if (typeof input === "string") {
       apiUrl = input;
-      apiMethod = init.method;
+      apiMethod = init?.method || 'GET';
     } else {
       apiUrl = input.url;
       apiMethod = input.method as Method;
