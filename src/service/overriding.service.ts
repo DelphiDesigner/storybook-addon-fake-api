@@ -30,7 +30,7 @@ export class OverridingService {
 
     if (typeof input === "string") {
       apiUrl = input;
-      apiMethod = init.method;
+      apiMethod = init ? init.method || "GET" : "GET";
     } else {
       apiUrl = input.url;
       apiMethod = input.method as Method;
@@ -47,7 +47,7 @@ export class OverridingService {
         }, api.response.delay || 0);
       });
     }
-    return (global as any).originalFetch(input, init);
+    return (window as any).originalFetch(input, init);
   };
 
   fakeXhr = (xhr: MockXhr) => {

@@ -1,112 +1,86 @@
 {
-    "name": "storybook-addon-fake-api",
-    "version": "1.0.0",
-    "description": "This addon will send fake responses to the requests sent from your component",
-    "keywords": [
-        "storybook-addons",
-        "fake-api",
-        "fake-response",
-        "fake-request"
-    ],
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/DelphiDesigner/storybook-addon-fake-api"
-    },
-    "author": "Morteza Ebrahimi",
-    "license": "MIT",
-    "module": "dist/esm/index.js",
-    "types": "dist/ts/index.d.ts",
-    "files": [
-        "dist/**/*",
-        "README.md",
-        "*.js",
-        "*.d.ts"
-    ],
-    "scripts": {
-        "clean": "rimraf ./dist",
-        "buildBabel": "concurrently \"yarn buildBabel:cjs\" \"yarn buildBabel:esm\"",
-        "buildBabel:cjs": "babel ./src -d ./dist/cjs --extensions \".ts,.tsx\"",
-        "buildBabel:esm": "babel ./src -d ./dist/esm --env-name esm --extensions \".ts,.tsx\"",
-        "buildTsc": "tsc --declaration --emitDeclarationOnly --outDir ./dist/ts",
-        "prebuild": "yarn clean",
-        "build": "concurrently \"yarn buildBabel\" \"yarn buildTsc\"",
-        "build:watch": "concurrently \"yarn buildBabel:esm -- --watch\" \"yarn buildTsc -- --watch\"",
-        "storybook": "start-storybook -p 6006",
-        "start": "concurrently \"yarn build:watch\" \"yarn storybook -- --no-manager-cache --quiet\"",
-        "build-storybook": "build-storybook",
-        "prerelease": "zx scripts/prepublish-checks.mjs",
-        "release": "yarn build && auto shipit",
-        "eject-ts": "zx scripts/eject-typescript.mjs",
-        "lint": "run-s prettier eslint stylelint --continue-on-error --print-name",
-        "lint:fix": "run-s prettier:fix eslint:fix stylelint:fix --continue-on-error --print-name",
-        "lint-staged:fix": "lint-staged",
-        "prettier": "prettier --check \"**/*.{ts,tsx,json,md,mdx,scss,css}\"",
-        "prettier:fix": "prettier --write \"**/*.{ts,tsx,json,md,mdx,scss,css}\"",
-        "eslint": "eslint \"src/**/*{.ts,.tsx}\"",
-        "eslint:fix": "eslint \"src/**/*{.ts,.tsx}\" --fix",
-        "stylelint": "stylelint \"src/**/*.{scss,css}\"",
-        "stylelint:fix": "stylelint \"src/**/*.{scss,css}\" --fix"
-    },
-    "devDependencies": {
-        "@babel/cli": "^7.12.1",
-        "@babel/core": "^7.12.3",
-        "@babel/preset-env": "^7.12.1",
-        "@babel/preset-react": "^7.12.5",
-        "@babel/preset-typescript": "^7.13.0",
-        "@types/node": "^16.10.3",
-        "@types/react": "^17.0.21",
-        "@types/react-dom": "^17.0.9",
-        "@typescript-eslint/eslint-plugin": "^4.31.0",
-        "@typescript-eslint/parser": "^4.31.0",
-        "auto": "^10.3.0",
-        "babel-loader": "^8.1.0",
-        "boxen": "^5.0.1",
-        "concurrently": "^6.2.0",
-        "dedent": "^0.7.0",
-        "eslint": "^7.32.0",
-        "eslint-config-airbnb": "^18.2.1",
-        "eslint-config-prettier": "^8.3.0",
-        "eslint-plugin-import": "^2.24.2",
-        "eslint-plugin-jsx-a11y": "^6.4.1",
-        "eslint-plugin-prettier": "^4.0.0",
-        "eslint-plugin-react": "^7.25.1",
-        "eslint-plugin-react-hooks": "^4.2.0",
-        "prettier": "^2.3.2",
-        "react": "^17.0.1",
-        "react-dom": "^17.0.1",
-        "rimraf": "^3.0.2",
-        "typescript": "^4.4.2",
-        "zx": "^1.14.1"
-    },
-    "peerDependencies": {},
-    "peerDependenciesMeta": {
-        "react": {
-            "optional": true
-        },
-        "react-dom": {
-            "optional": true
-        }
-    },
-    "publishConfig": {
-        "access": "public"
-    },
-    "storybook": {
-        "displayName": "Fake API",
-        "supportedFrameworks": [
-            "angular",
-            "react",
-            "vue",
-            "angular"
-        ],
-        "icon": "https://user-images.githubusercontent.com/321738/63501763-88dbf600-c4cc-11e9-96cd-94adadc2fd72.png"
-    },
-    "dependencies": {
-        "@storybook/addons": "^6.3.6",
-        "@storybook/api": "^6.3.6",
-        "@storybook/components": "^6.3.6",
-        "mock-xmlhttprequest": "^7.0.4",
-        "path-to-regexp": "^6.2.0",
-        "react": "^17.0.0",
-        "react-dom": "^17.0.0"
-    }
+  "name": "storybook-addon-fake-api",
+  "version": "1.0.11",
+  "description": "This addon will send fake responses to the requests sent from your component",
+  "keywords": [
+    "storybook-addons",
+    "fake-api",
+    "fake-response",
+    "fake-request"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DelphiDesigner/storybook-addon-fake-api"
+  },
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/ts/index.d.ts",
+  "files": [
+    "dist/**/*",
+    "README.md",
+    "*.js",
+    "*.d.ts"
+  ],
+  "author": "Morteza Ebrahimi",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rimraf ./dist",
+    "buildBabel": "concurrently \"yarn buildBabel:cjs\" \"yarn buildBabel:esm\"",
+    "buildBabel:cjs": "babel ./src -d ./dist/cjs --extensions \".ts,.tsx\"",
+    "buildBabel:esm": "babel ./src -d ./dist/esm --env-name esm --extensions \".ts,.tsx\"",
+    "buildTsc": "tsc --declaration --emitDeclarationOnly --outDir ./dist/ts",
+    "prebuild": "yarn clean",
+    "build": "concurrently \"yarn buildBabel\" \"yarn buildTsc\"",
+    "build:watch": "concurrently \"yarn buildBabel:esm -- --watch\" \"yarn buildTsc -- --watch\"",
+    "storybook": "start-storybook -p 6006",
+    "start": "concurrently \"yarn build:watch\" \"yarn storybook -- --no-manager-cache --quiet\"",
+    "build-storybook": "build-storybook",
+    "prerelease": "zx scripts/prepublish-checks.mjs",
+    "release": "yarn build && auto shipit",
+    "eject-ts": "zx scripts/eject-typescript.mjs",
+    "lint": "run-s prettier eslint stylelint --continue-on-error --print-name",
+    "lint:fix": "run-s prettier:fix eslint:fix stylelint:fix --continue-on-error --print-name",
+    "lint-staged:fix": "lint-staged",
+    "prettier": "prettier --check \"**/*.{ts,tsx,json,md,mdx,scss,css}\"",
+    "prettier:fix": "prettier --write \"**/*.{ts,tsx,json,md,mdx,scss,css}\"",
+    "eslint": "eslint \"src/**/*{.ts,.tsx}\"",
+    "eslint:fix": "eslint \"src/**/*{.ts,.tsx}\" --fix",
+    "stylelint": "stylelint \"src/**/*.{scss,css}\"",
+    "stylelint:fix": "stylelint \"src/**/*.{scss,css}\" --fix"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.5",
+    "@babel/preset-typescript": "^7.13.0",
+    "@types/node": "^16.10.3",
+    "@types/react": "^17.0.21",
+    "@types/react-dom": "^17.0.9",
+    "@types/webpack-env": "^1.16.3",
+    "@typescript-eslint/eslint-plugin": "^4.31.0",
+    "@typescript-eslint/parser": "^4.31.0",
+    "babel-loader": "^8.1.0",
+    "concurrently": "^6.2.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.25.1",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier": "^2.3.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.4.2"
+  },
+  "dependencies": {
+    "@storybook/addons": "^6.3.6",
+    "@storybook/api": "^6.3.6",
+    "@storybook/components": "^6.3.6",
+    "mock-xmlhttprequest": "^7.0.4",
+    "path-to-regexp": "^6.2.0"
+  }
 }

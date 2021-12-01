@@ -5,10 +5,10 @@ import { EVENTS } from "./models/constants";
 import { OverridingService } from "./service/overriding.service";
 import { ApiManagerService } from "./service/api-manager.service";
 
-export default makeDecorator({
+export const withAPI = makeDecorator({
   name: "withAPI",
   parameterName: "APIList",
-  wrapper: (getStory, context, { parameters }) => {
+  wrapper: (storyFn, context, { parameters }) => {
     OverridingService.getInstance();
     ApiManagerService.getInstance().setList(parameters as IAPIList);
 
@@ -20,6 +20,6 @@ export default makeDecorator({
       ApiManagerService.getInstance().updateItem(keyName, index, value);
     });
 
-    return getStory(context);
+    return storyFn(context);
   },
 });

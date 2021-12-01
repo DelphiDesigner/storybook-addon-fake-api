@@ -1,3 +1,3 @@
-import withAPI from "./withApi";
+import { withAPI } from "./withApi";
 
 export const decorators = [withAPI];

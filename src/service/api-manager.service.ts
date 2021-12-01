@@ -124,10 +124,13 @@ export class ApiManagerService {
     if (!this.apiList) {
       return undefined;
     }
-
+    let passedUrl = url;
     return this.apiList.find((api) => {
+      if (url.indexOf("http") !== 0) {
+        passedUrl = `${window.location.protocol}//${window.location.host}${url}`;
+      }
       const parsedApiUrl = new URL(api.url);
-      const parsedUrl = new URL(url);
+      const parsedUrl = new URL(passedUrl);
 
       const matcher = match(parsedApiUrl.host + parsedApiUrl.pathname, {
         encode: encodeURI,
